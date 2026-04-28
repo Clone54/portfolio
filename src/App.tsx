@@ -1,17 +1,17 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Github, Linkedin, Facebook, Mail, Phone, ExternalLink, Download, ArrowRight, ChevronLeft } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { ArrowRight, ChevronLeft, Download, ExternalLink, Facebook, Github, Linkedin, Mail, Menu, Phone, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { Link, Route, BrowserRouter as Router, Routes, useLocation, useParams } from 'react-router-dom';
+import { EDUCATION, EXPERIENCES, PERSONAL_INFO, PROJECTS, SKILLS, TECH_MAP } from './data';
 import { cn } from './utils';
-import { PERSONAL_INFO, PROJECTS, SKILLS, EXPERIENCES, EDUCATION, TECH_MAP } from './data';
-import { Project } from './types';
+import { generateResumePDF } from './utils/pdf';
 
 const XIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
     className={className}
   >
     <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.294 19.497h2.039L6.486 3.24H4.298l13.31 17.41Z" />
@@ -104,7 +104,7 @@ function Hero() {
       {/* Background elements */}
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-slate-600/10 rounded-full blur-3xl" />
-      
+
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -124,9 +124,12 @@ function Hero() {
           <p className="text-lg text-slate-500 max-w-xl mb-10 leading-relaxed">
             {PERSONAL_INFO.bio}
           </p>
-          
+
           <div className="flex flex-wrap gap-4 mb-12">
-            <button className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold flex items-center gap-2 transition-all group">
+            <button
+              onClick={generateResumePDF}
+              className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold flex items-center gap-2 transition-all group"
+            >
               Download Resume <Download size={18} className="group-hover:translate-y-1 transition-transform" />
             </button>
             <div className="flex items-center gap-3">
@@ -154,8 +157,8 @@ function Hero() {
         >
           <div className="relative group w-full max-w-md">
             <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-slate-800 border-4 border-slate-700/50 shadow-2xl relative z-10">
-              <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
+              <img
+                src="/src/assets/Screenshot 2026-01-19 203415.png"
                 alt={PERSONAL_INFO.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -220,7 +223,7 @@ function Skills() {
     <section id="skills" className="py-24">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-white mb-12 text-center">My Technical <span className="text-indigo-500">Arsenal</span></h2>
-        
+
         <div className="grid md:grid-cols-3 gap-12">
           {categories.map((category) => (
             <div key={category} className="bg-slate-800/30 p-8 rounded-2xl border border-slate-700/50">
@@ -289,7 +292,7 @@ function Projects() {
             <p className="text-slate-500">A collection of my recent work and open-source contributions.</p>
           </div>
           <div className="flex items-center gap-3">
-            <button 
+            <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
               className={cn(
@@ -299,7 +302,7 @@ function Projects() {
             >
               <ChevronLeft size={24} />
             </button>
-            <button 
+            <button
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
               className={cn(
@@ -312,7 +315,7 @@ function Projects() {
           </div>
         </div>
 
-        <div 
+        <div
           id="project-slider"
           ref={containerRef}
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 -mx-6 px-6"
@@ -338,7 +341,7 @@ function Projects() {
                     {project.shortDescription}
                   </p>
                   <div className="mt-auto">
-                    <Link 
+                    <Link
                       to={`/project/${project.id}`}
                       className="w-full py-3 bg-slate-700 hover:bg-indigo-600 text-white rounded-xl font-medium flex items-center justify-center gap-2 transition-all"
                     >
@@ -408,14 +411,14 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="bg-gradient-to-br from-indigo-900/30 to-slate-800/30 rounded-3xl border border-indigo-500/10 p-12 overflow-hidden relative">
           <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl" />
-          
+
           <div className="grid md:grid-cols-2 gap-12 relative z-10">
             <div>
               <h2 className="text-4xl font-bold text-white mb-8">Let's Work <span className="text-indigo-500">Together</span></h2>
               <p className="text-slate-400 text-lg mb-12 leading-relaxed max-w-md">
                 Have a project in mind or want to discuss a potential partnership? I'm always open to talking about new designs and development challenges.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center gap-4 group">
                   <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all">
@@ -437,7 +440,7 @@ function Contact() {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 backdrop-blur-sm">
               <form className="space-y-6" onSubmit={(e) => {
                 e.preventDefault();
@@ -445,7 +448,7 @@ function Contact() {
                 const name = formData.get('name');
                 const email = formData.get('email');
                 const message = formData.get('message');
-                
+
                 const text = `Name: ${name} \n Email: ${email} \n Message: ${message}`;
                 const whatsappUrl = `https://wa.me/8801871528249?text=${encodeURIComponent(text)}`;
                 window.open(whatsappUrl, '_blank');
@@ -548,7 +551,7 @@ function ProjectDetailsPage() {
         <Link to="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-white mb-12 transition-colors">
           <ChevronLeft size={20} /> Back to Projects
         </Link>
-        
+
         <div className="mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">{project.name}</h1>
           <div className="flex flex-wrap gap-4 mb-8">
@@ -605,17 +608,17 @@ function ProjectDetailsPage() {
             <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700/50 sticky top-32">
               <h3 className="text-xl font-bold text-white mb-6">Project Links</h3>
               <div className="space-y-4">
-                <a 
-                  href={project.liveLink} 
-                  target="_blank" 
+                <a
+                  href={project.liveLink}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all"
                 >
                   Live Demo <ExternalLink size={18} />
                 </a>
-                <a 
-                  href={project.githubLink} 
-                  target="_blank" 
+                <a
+                  href={project.githubLink}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-4 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all"
                 >

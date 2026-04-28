@@ -40,10 +40,11 @@ export const PERSONAL_INFO = {
   hobbies: 'Outside of coding, I am an avid fan of football and enjoy competitive sports. I also have a keen interest in repairing electronic devices and exploring new technologies that push the boundaries of what is possible on the web.',
   socials: {
     github: 'https://github.com/Clone54',
-    linkedin: 'https://linkedin.com/in/firozahmed',
-    x: 'https://x.com/firozahmed',
+    linkedin: 'https://linkedin.com/in/firoz-ahmed88',
+    x: 'https://x.com/FirozShoyk24050',
     facebook: 'https://facebook.com/firoz.ahmed5678',
-  }
+  },
+  resumeUrl: '/resume.pdf'
 };
 
 export const SKILLS: Skill[] = [
@@ -64,9 +65,9 @@ export const PROJECTS: Project[] = [
     name: 'Payoo',
     shortDescription: 'A Smart Mobile Financial Service (MFS) interface for seamless transactions.',
     fullDescription: 'Payoo is a modern, responsive interface for Mobile Financial Services. It focuses on providing a clean user experience for money transfers, bill payments, and account management, inspired by professional financial applications.',
-    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/payoo.png',
     stack: ['HTML', 'Tailwind', 'JavaScript', 'Node.js'],
-    liveLink: 'https://payoo-mfs.vercel.app',
+    liveLink: 'https://clone54.github.io/Payoo/',
     githubLink: 'https://github.com/Clone54/Payoo',
     challenges: [
       'Ensuring a highly secure-feeling UI for financial transactions.',
@@ -74,29 +75,10 @@ export const PROJECTS: Project[] = [
       'Optimizing the interface for mobile-first users.'
     ],
     futurePlans: [
-      'Integrating a real backend for transaction history.',
+      'A frontend demo of MFS ',
+      'Credentials: Number -> 01871528249, Password -> 528249',
       'Adding biometric authentication support (mocked).',
       'Expanding to support international currency formats.'
-    ]
-  },
-  {
-    id: 'tutor-lagbe',
-    name: 'Tutor Lagbe',
-    shortDescription: 'A comprehensive platform connecting students with expert tutors.',
-    fullDescription: 'Tutor Lagbe is designed to bridge the gap between students seeking educational help and qualified tutors. It features advanced matching algorithms and a robust profile system for both parties.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800',
-    stack: ['React', 'Node.js', 'MongoDB', 'Express'],
-    liveLink: 'https://tutor-lagbe-demo.vercel.app',
-    githubLink: 'https://github.com/Clone54/tutor-lagbe',
-    challenges: [
-      'Developing a scalable search and filter system for tutors.',
-      'Managing complex real-time interview scheduling.',
-      'Securing user data and verifying tutor credentials.'
-    ],
-    futurePlans: [
-      'Adding an integrated video calling feature for sessions.',
-      'Implementing an automated review and rating system.',
-      'Launching a mobile app version for push notifications.'
     ]
   },
   {
@@ -123,13 +105,13 @@ export const PROJECTS: Project[] = [
     id: 'sid-ruet',
     name: 'SID RUET',
     shortDescription: 'Student Identity and Database management system for university students.',
-    fullDescription: 'SID RUET is a centralized database system for maintaining student records, identities, and academic progress for the university community.',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800',
+    fullDescription: 'SID RUET is a id card making system for maintaining student records and identities for the university community.',
+    image: '/src/assets/sid.png',
     stack: ['React', 'Express', 'PostgreSQL', 'Tailwind'],
     liveLink: 'https://sid-ruet.vercel.app',
     githubLink: 'https://github.com/Clone54/SID_RUET',
     challenges: [
-      'Migrating legacy data to a modern relational database.',
+      'Migrating legacy data to a modern designed id card.',
       'Implementing strict security protocols for student records.',
       'Designing a multi-user permission system for faculty and students.'
     ],
@@ -140,10 +122,10 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: 'ict-medha',
-    name: 'ICT cheet sheet',
+    id: 'ict-cheat-sheet',
+    name: 'ICT Cheat Sheet',
     shortDescription: 'Educational cheat sheet for C programming tailored for HSC students.',
-    fullDescription: 'ICT Medha is a comprehensive digital cheat sheet designed to help HSC students master C programming. It covers everything from basic structure to complex algorithms in an easy-to-digest format.',
+    fullDescription: 'ICT Cheat Sheet is a comprehensive digital cheat sheet designed to help HSC students master C programming. It covers everything from basic structure to complex algorithms in an easy-to-digest format.',
     image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=800',
     stack: ['React', 'Tailwind', 'Motion'],
     liveLink: 'https://ict-medha.vercel.app',
@@ -162,12 +144,12 @@ export const PROJECTS: Project[] = [
   {
     id: 'keenkeeper',
     name: 'KeenKeeper',
-    shortDescription: 'A minimalist note-keeping application for focused productivity.',
-    fullDescription: 'KeenKeeper provides a clean and distraction-free environment for taking notes. It emphasizes simplicity and speed, allowing users to capture ideas instantly.',
-    image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&q=80&w=800',
+    shortDescription: 'A minimalist contact keeping application for focused productivity.',
+    fullDescription: 'KeenKeeper provides a clean and distraction-free environment for taking notes of contacts. It emphasizes simplicity and speed, allowing users to contact someone instantly.',
+    image: '/src/assets/keenkeeper.png',
     stack: ['React', 'Vite', 'Tailwind', 'Local Storage'],
     liveLink: 'https://keepkeener.vercel.app',
-    githubLink: 'https://github.com/Clone54/website',
+    githubLink: 'https://github.com/Clone54/Assignmnet_7',
     challenges: [
       'Implementing an auto-save feature for notes.',
       'Maintaining a clean, minimalist UI without sacrificing functionality.',
@@ -184,7 +166,7 @@ export const PROJECTS: Project[] = [
     name: 'GitHub Issues Tracker',
     shortDescription: 'A tool for managing and tracking GitHub repository issues.',
     fullDescription: 'This project is a functional clone of a GitHub issues interface, allowing users to view, sort, and filter repository issues with a professional UI.',
-    image: 'https://images.unsplash.com/photo-1556075798-4825dfaf486e?auto=format&fit=crop&q=80&w=800',
+    image: '/src/assets/github.png',
     stack: ['HTML', 'Tailwind', 'JavaScript'],
     liveLink: 'https://clone54.github.io/Assignment_5/',
     githubLink: 'https://github.com/Clone54/Assignment_5',
@@ -238,14 +220,34 @@ export const PROJECTS: Project[] = [
       'Adding an interactive map for location scouting.',
       'Implementing a multi-step contact form.'
     ]
+  },
+  {
+    id: 'tutor-lagbe',
+    name: 'Tutor Lagbe',
+    shortDescription: 'A comprehensive platform connecting students with expert tutors.',
+    fullDescription: 'Tutor Lagbe is designed to bridge the gap between students seeking educational help and qualified tutors. It features advanced matching algorithms and a robust profile system for both parties.',
+    image: '/src/assets/tutorlagbe.png',
+    stack: ['React', 'Node.js', 'MongoDB', 'Express'],
+    liveLink: 'https://tutor-lagbe-three.vercel.app/',
+    githubLink: 'https://github.com/Clone54/tutor-lagbe',
+    challenges: [
+      'Developing a scalable search and filter system for tutors.',
+      'Managing complex real-time interview scheduling.',
+      'Securing user data and verifying tutor credentials.'
+    ],
+    futurePlans: [
+      'Adding an integrated messaging feature for sessions.',
+      'Implementing an automated review and rating system.',
+      'Launching a mobile app version for push notifications.'
+    ]
   }
 ];
 
 export const EXPERIENCES: Experience[] = [
   {
-    company: 'Tech Solutions Ltd.',
+    company: 'null',
     position: 'Junior Full Stack Developer',
-    period: '2023 - Present',
+    period: '2025 - Present',
     description: [
       'Developed and maintained client websites using the MERN stack.',
       'Collaborated with designers to implement responsive UI/UX components.',
@@ -254,27 +256,27 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     company: 'Freelance',
-    position: 'Web Developer',
-    period: '2021 - 2023',
+    position: 'Digital Marketer',
+    period: '2024 - 2025',
     description: [
-      'Built custom WordPress and React-based sites for local businesses.',
-      'Managed end-to-end project delivery from requirement gathering to deployment.',
-      'Provided ongoing maintenance and SEO optimization for client projects.'
+      'Managed social media campaigns for local businesses, increasing engagement by 30%.',
+      'Created content calendars and designed graphics using Canva.',
+      'Analyzed campaign performance and provided actionable insights to clients.'
     ]
   }
 ];
 
 export const EDUCATION: Education[] = [
   {
-    institution: 'University of Engineering and Technology',
-    degree: 'B.Sc. in Computer Science',
-    period: '2019 - 2023',
-    details: 'Focused on software engineering, data structures, and algorithms. Graduated with Honors.'
+    institution: 'Rajshahi University of Engineering and Technology',
+    degree: 'B.Sc. in Electrical and Electronic Engineering',
+    period: '2024 - 2029',
+    details: 'Currently pursuing my undergraduate degree with a focus on software development and web technologies. I have completed coursework in data structures, algorithms, and database management, and have been actively involved in coding projects and hackathons.'
   },
   {
-    institution: 'Dhaka City College',
+    institution: 'New Govt. Degree College, Rajshahi',
     degree: 'Higher Secondary Certificate (HSC)',
-    period: '2017 - 2019',
+    period: '2021 - 2023',
     details: 'Completed Science group with a GPA of 5.0.'
   }
 ];
