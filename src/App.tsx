@@ -158,7 +158,7 @@ function Hero() {
           <div className="relative group w-full max-w-md">
             <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-slate-800 border-4 border-slate-700/50 shadow-2xl relative z-10">
               <img
-                src="/src/assets/Screenshot 2026-01-19 203415.png"
+                src="/assets/Screenshot 2026-01-19 203415.png"
                 alt={PERSONAL_INFO.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

@@ -23,7 +23,7 @@ const loadImage = async (path: string): Promise<string> => {
 
 export const generateResumePDF = async () => {
   // Load profile image as data URL
-  const photoDataUrl = await loadImage('/src/assets/Screenshot 2026-01-19 203415.png');
+  const photoDataUrl = await loadImage('/profile.png');
 
   // Create a temporary container for the resume HTML
   const container = document.createElement('div');
