@@ -1,0 +1,22 @@
+--- src/context/PortfolioContext.tsx
++++ src/context/PortfolioContext.tsx
+@@ -226,6 +226,9 @@
+       await signInWithEmailAndPassword(auth, user, pass);
+       return true;
+     } catch (error: any) {
++      if (error.code === 'auth/operation-not-allowed') {
++        throw new Error("Email/Password authentication is disabled in your Firebase project. Please go to Firebase Console -> Authentication -> Sign-in method, and enable 'Email/Password'.");
++      }
+       if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
+         try {
+           // If the user doesn't exist, allow them to create the first admin account
+           // Note: In production you might want to restrict this
+           await createUserWithEmailAndPassword(auth, user, pass);
+           return true;
+         } catch (e: any) {
++          if (e.code === 'auth/operation-not-allowed') {
++            throw new Error("Email/Password authentication is disabled in your Firebase project. Please go to Firebase Console -> Authentication -> Sign-in method, and enable 'Email/Password'.");
++          }
+           console.error("Error creating admin account:", e);
+           throw e;
+         }

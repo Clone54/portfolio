@@ -1,0 +1,97 @@
+{
+  "collections": [
+    {
+      "name": "projects",
+      "documentId": "projectId",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "subtitle": { "type": "string" },
+          "category": { "type": "string" },
+          "summary": { "type": "string" },
+          "description": { "type": "string" },
+          "image": { "type": "string" },
+          "techStack": {
+            "type": "object",
+            "properties": {
+              "frontend": { "type": "array", "items": { "type": "string" } },
+              "backend": { "type": "array", "items": { "type": "string" } },
+              "database": { "type": "array", "items": { "type": "string" } },
+              "tools": { "type": "array", "items": { "type": "string" } }
+            },
+            "required": ["frontend", "backend", "database", "tools"]
+          },
+          "features": { "type": "array", "items": { "type": "string" } },
+          "architectureOverview": { "type": "string" },
+          "challenges": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": { "type": "string" },
+                "description": { "type": "string" },
+                "solution": { "type": "string" }
+              },
+              "required": ["title", "description", "solution"]
+            }
+          },
+          "futurePlans": { "type": "array", "items": { "type": "string" } },
+          "liveUrl": { "type": "string" },
+          "githubClient": { "type": "string" },
+          "githubServer": { "type": "string" },
+          "featured": { "type": "boolean" },
+          "starsCount": { "type": "number" },
+          "forksCount": { "type": "number" },
+          "duration": { "type": "string" }
+        },
+        "required": ["title", "subtitle", "category", "summary", "description"]
+      }
+    },
+    {
+      "name": "skills",
+      "documentId": "skillId",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "category": { "type": "string" },
+          "proficiency": { "type": "number" },
+          "levelLabel": { "type": "string" },
+          "iconName": { "type": "string" },
+          "description": { "type": "string" },
+          "yearsOfExperience": { "type": "number" }
+        },
+        "required": ["name", "category", "proficiency"]
+      }
+    },
+    {
+      "name": "timeline",
+      "documentId": "itemId",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "period": { "type": "string" },
+          "title": { "type": "string" },
+          "organization": { "type": "string" },
+          "location": { "type": "string" },
+          "description": { "type": "string" },
+          "highlights": { "type": "array", "items": { "type": "string" } },
+          "tags": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["type", "period", "title"]
+      }
+    },
+    {
+      "name": "globals",
+      "documentId": "documentId",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" }
+        }
+      }
+    }
+  ]
+}

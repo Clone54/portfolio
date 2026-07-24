@@ -1,0 +1,6 @@
+{
+  "name": "DevTerminal Portfolio",
+  "description": "Cyberpunk-inspired full stack developer portfolio with interactive 3D WebGL background, live terminal, dynamic project detail pages, and interactive skill visualizers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
