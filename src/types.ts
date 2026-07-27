@@ -14,6 +14,7 @@ export interface Project {
     backend: string[];
     database: string[];
     tools: string[];
+    auth?: string[];
   };
   features: string[];
   architectureOverview: string;
@@ -27,6 +28,7 @@ export interface Project {
   githubClient: string;
   githubServer?: string;
   featured: boolean;
+  showInResume?: boolean;
   starsCount: number;
   forksCount: number;
   duration: string;
@@ -87,4 +89,9 @@ export interface DeveloperBio {
   projectsDescription?: string;
   academicRecord?: string;
   academicDescription?: string;
+  careerObjective?: string;
+  technicalSkills?: string;
+  interpersonalSkills?: string;
+  educationRecord?: string;
+  languageProficiency?: string;
 }

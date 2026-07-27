@@ -967,6 +967,63 @@ export const AdminPage: React.FC<AdminPageProps> = ({ theme }) => {
                 </div>
               </div>
 
+              {/* Resume Generator Configuration */}
+              <div className="space-y-4 text-xs pt-4 border-t border-[#1A1A1A]">
+                <h3 className="text-xs font-bold text-[#00E5FF]">Resume Document Generator Settings</h3>
+                
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <label className="text-gray-400 font-bold">Career Objective</label>
+                    <textarea
+                      rows={3}
+                      value={bioForm.careerObjective || ''}
+                      onChange={(e) => setBioForm(prev => ({ ...prev, careerObjective: e.target.value }))}
+                      className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                    />
+                  </div>
+                  
+                  <div className="space-y-1">
+                    <label className="text-gray-400 font-bold">Technical Skills</label>
+                    <textarea
+                      rows={2}
+                      value={bioForm.technicalSkills || ''}
+                      onChange={(e) => setBioForm(prev => ({ ...prev, technicalSkills: e.target.value }))}
+                      className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                    />
+                  </div>
+                  
+                  <div className="space-y-1">
+                    <label className="text-gray-400 font-bold">Interpersonal Skills</label>
+                    <input
+                      type="text"
+                      value={bioForm.interpersonalSkills || ''}
+                      onChange={(e) => setBioForm(prev => ({ ...prev, interpersonalSkills: e.target.value }))}
+                      className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-gray-400 font-bold">Education Record (Markdown / Multiline format)</label>
+                    <textarea
+                      rows={3}
+                      value={bioForm.educationRecord || ''}
+                      onChange={(e) => setBioForm(prev => ({ ...prev, educationRecord: e.target.value }))}
+                      className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-gray-400 font-bold">Language Proficiency (Bullet points separated by newline)</label>
+                    <textarea
+                      rows={3}
+                      value={bioForm.languageProficiency || ''}
+                      onChange={(e) => setBioForm(prev => ({ ...prev, languageProficiency: e.target.value }))}
+                      className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
               {/* Social Links Editor */}
               <div className="space-y-3 pt-4 border-t border-[#1A1A1A]">
                 <h3 className="text-xs font-bold text-[#00E5FF]">Social Links Configuration</h3>
@@ -1229,7 +1286,114 @@ export const AdminPage: React.FC<AdminPageProps> = ({ theme }) => {
                   />
                 </div>
 
-                <div className="flex items-center gap-4 pt-2">
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">Database Technologies (Comma separated)</label>
+                  <input
+                    type="text"
+                    value={projectForm.techStack.database.join(', ')}
+                    onChange={(e) => setProjectForm(prev => ({
+                      ...prev,
+                      techStack: { ...prev.techStack, database: e.target.value.split(',').map(s => s.trim()) }
+                    }))}
+                    className="w-full px-3 py-1.5 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 text-xs"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">Authentication (Comma separated)</label>
+                  <input
+                    type="text"
+                    value={projectForm.techStack.auth?.join(', ') || ''}
+                    onChange={(e) => setProjectForm(prev => ({
+                      ...prev,
+                      techStack: { ...prev.techStack, auth: e.target.value.split(',').map(s => s.trim()) }
+                    }))}
+                    className="w-full px-3 py-1.5 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 text-xs"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">Tools / DevOps (Comma separated)</label>
+                  <input
+                    type="text"
+                    value={projectForm.techStack.tools.join(', ')}
+                    onChange={(e) => setProjectForm(prev => ({
+                      ...prev,
+                      techStack: { ...prev.techStack, tools: e.target.value.split(',').map(s => s.trim()) }
+                    }))}
+                    className="w-full px-3 py-1.5 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 text-xs"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label className="text-gray-400 font-bold">Stars Count</label>
+                    <input
+                      type="number"
+                      value={projectForm.starsCount}
+                      onChange={(e) => setProjectForm(prev => ({ ...prev, starsCount: Number(e.target.value) }))}
+                      className="w-full px-3 py-2 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-gray-400 font-bold">Forks Count</label>
+                    <input
+                      type="number"
+                      value={projectForm.forksCount}
+                      onChange={(e) => setProjectForm(prev => ({ ...prev, forksCount: Number(e.target.value) }))}
+                      className="w-full px-3 py-2 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">Key System Features (Newline separated)</label>
+                  <textarea
+                    rows={4}
+                    value={projectForm.features.join('\n')}
+                    onChange={(e) => setProjectForm(prev => ({ ...prev, features: e.target.value.split('\n').filter(Boolean) }))}
+                    className="w-full px-3 py-2 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">System Architecture and Workflow</label>
+                  <textarea
+                    rows={4}
+                    value={projectForm.architectureOverview}
+                    onChange={(e) => setProjectForm(prev => ({ ...prev, architectureOverview: e.target.value }))}
+                    className="w-full px-3 py-2 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">Challenges Faced (Format: Title|Description|Solution separated by newlines)</label>
+                  <textarea
+                    rows={4}
+                    value={projectForm.challenges.map(c => `${c.title}|${c.description}|${c.solution}`).join('\n')}
+                    onChange={(e) => {
+                      const parsed = e.target.value.split('\n').filter(Boolean).map(line => {
+                        const [title = '', description = '', solution = ''] = line.split('|');
+                        return { title, description, solution };
+                      });
+                      setProjectForm(prev => ({ ...prev, challenges: parsed }));
+                    }}
+                    placeholder="Example Challenge|It was hard|I solved it"
+                    className="w-full px-3 py-2 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">Potential Improvements and Future Roadmap (Newline separated)</label>
+                  <textarea
+                    rows={4}
+                    value={projectForm.futurePlans.join('\n')}
+                    onChange={(e) => setProjectForm(prev => ({ ...prev, futurePlans: e.target.value.split('\n').filter(Boolean) }))}
+                    className="w-full px-3 py-2 rounded bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-3 pt-2">
                   <label className="flex items-center gap-2 cursor-pointer font-bold text-gray-200">
                     <input
                       type="checkbox"
@@ -1238,6 +1402,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({ theme }) => {
                       className="w-4 h-4 accent-[#00FF41]"
                     />
                     <span>Mark as Featured Project on Home Page</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer font-bold text-gray-200">
+                    <input
+                      type="checkbox"
+                      checked={projectForm.showInResume}
+                      onChange={(e) => setProjectForm(prev => ({ ...prev, showInResume: e.target.checked }))}
+                      className="w-4 h-4 accent-[#00FF41]"
+                    />
+                    <span>Show on Auto-Generated Resume</span>
                   </label>
                 </div>
 

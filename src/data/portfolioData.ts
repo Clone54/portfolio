@@ -34,7 +34,12 @@ export const developerBio: DeveloperBio = {
   completedProjects: "35+ Full Repos",
   projectsDescription: "High-impact web apps, 3D showcases, AI tools, and scalable REST/GraphQL backend systems.",
   academicRecord: "B.Sc. CSE",
-  academicDescription: "Honors Degree in Computer Science with Post-HSC Science Distinction (CGPA 3.85 / 4.00)."
+  academicDescription: "Honors Degree in Computer Science with Post-HSC Science Distinction (CGPA 3.85 / 4.00).",
+  careerObjective: "Aspiring and detail-oriented Web Developer with a strong foundation in modern frontend and full-stack technologies. Eager to leverage clean coding practices, responsive design principles, and scalable architectures to build high-performance, user-centric web applications for a dynamic development team.",
+  technicalSkills: "HTML5, CSS3, JavaScript (ES6+), React.js, Next.js, Tailwind CSS, Node.js, Express.js, MongoDB, Firebase, TypeScript, Git.",
+  interpersonalSkills: "Professional Communication, Team Collaboration, Public Speaking, and Adaptive Problem Solving.",
+  educationRecord: "**Rajshahi University of Engineering & Technology (RUET)**\nBSc in Electrical & Electronic Engineering\n2024 – 2029 (Expected)",
+  languageProficiency: "• English: Fluent (High Reading/Writing)\n• Bangla: Native\n• Hindi: Understandable"
 };
 
 export const socialLinks: SocialLink[] = [
@@ -88,7 +93,7 @@ export const projectsData: Project[] = [
     liveUrl: "https://ais-dev-e2zx6fnx6syav3l4mx3kzq-473656623930.asia-southeast1.run.app",
     githubClient: "https://github.com/firozahmed/cybernexus-client",
     githubServer: "https://github.com/firozahmed/cybernexus-server",
-    featured: true,
+    featured: true, showInResume: true,
     starsCount: 142,
     forksCount: 28,
     duration: "3 Months (Q1 2026)"
@@ -129,7 +134,7 @@ export const projectsData: Project[] = [
     liveUrl: "https://ais-dev-e2zx6fnx6syav3l4mx3kzq-473656623930.asia-southeast1.run.app",
     githubClient: "https://github.com/firozahmed/neural-script-ide",
     githubServer: "https://github.com/firozahmed/neural-script-backend",
-    featured: true,
+    featured: true, showInResume: true,
     starsCount: 98,
     forksCount: 19,
     duration: "2 Months (Q4 2025)"
@@ -169,7 +174,7 @@ export const projectsData: Project[] = [
     ],
     liveUrl: "https://ais-dev-e2zx6fnx6syav3l4mx3kzq-473656623930.asia-southeast1.run.app",
     githubClient: "https://github.com/firozahmed/quantum-3d-showroom",
-    featured: true,
+    featured: true, showInResume: true,
     starsCount: 210,
     forksCount: 45,
     duration: "2.5 Months (2025)"
