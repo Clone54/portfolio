@@ -9,13 +9,14 @@ export const developerBio: DeveloperBio = {
     "Real-Time SaaS Architect",
     "AI & Cloud Native Engineer"
   ],
-  location: "Dhaka, Bangladesh // Available Remotely Worldwide",
+  location: "Dhaka, Bangladesh",
   email: "firozahmedskt1@gmail.com",
   phone: "+880 1700-123456",
   whatsapp: "+8801700123456",
   github: "https://github.com/firozahmed",
   linkedin: "https://linkedin.com/in/firozahmed",
   twitter: "https://x.com/firozahmed_dev",
+  portfolio: "https://firozahmed.vercel.app",
   status: "OPEN TO FULL-TIME & HIGH-IMPACT FREELANCE",
   availability: "Available for 40+ hrs/week across UTC/EST/PST timezones",
   bioSummary: "I bridge high-performance full-stack web applications with immersive interactive visual experiences. Specializing in the MERN stack, TypeScript, Three.js, and scalable cloud microservices.",
@@ -43,10 +44,10 @@ export const developerBio: DeveloperBio = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { name: "GitHub", url: "https://github.com", icon: "Github", username: "@firozahmed" },
-  { name: "LinkedIn", url: "https://linkedin.com", icon: "Linkedin", username: "in/firozahmed" },
+  { name: "GitHub", url: "https://github.com", icon: "Github", username: "@Clone54" },
+  { name: "LinkedIn", url: "https://linkedin.com", icon: "Linkedin", username: "in/firoz-ahmed88" },
   { name: "Twitter", url: "https://x.com", icon: "Twitter", username: "@firozahmed_dev" },
-  { name: "WhatsApp", url: "https://wa.me/8801700123456", icon: "MessageSquare", username: "+880 1700-123456" },
+  { name: "WhatsApp", url: "https://wa.me/8801871528249", icon: "MessageSquare", username: "+880 1871-528249" },
   { name: "Email", url: "mailto:firozahmedskt1@gmail.com", icon: "Mail", username: "firozahmedskt1@gmail.com" }
 ];
 

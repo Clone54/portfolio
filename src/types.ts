@@ -75,6 +75,7 @@ export interface DeveloperBio {
   github: string;
   linkedin: string;
   twitter: string;
+  portfolio?: string;
   status: string;
   availability: string;
   bioSummary: string;

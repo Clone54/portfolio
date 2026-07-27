@@ -837,7 +837,37 @@ export const AdminPage: React.FC<AdminPageProps> = ({ theme }) => {
                     className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
                   />
                 </div>
-
+                
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">Portfolio URL (Resume)</label>
+                  <input
+                    type="text"
+                    value={bioForm.portfolio || ''}
+                    onChange={(e) => setBioForm(prev => ({ ...prev, portfolio: e.target.value }))}
+                    className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                  />
+                </div>
+                
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">LinkedIn URL (Resume)</label>
+                  <input
+                    type="text"
+                    value={bioForm.linkedin || ''}
+                    onChange={(e) => setBioForm(prev => ({ ...prev, linkedin: e.target.value }))}
+                    className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                  />
+                </div>
+                
+                <div className="space-y-1">
+                  <label className="text-gray-400 font-bold">GitHub URL (Resume)</label>
+                  <input
+                    type="text"
+                    value={bioForm.github || ''}
+                    onChange={(e) => setBioForm(prev => ({ ...prev, github: e.target.value }))}
+                    className="w-full px-3 py-2 rounded-lg bg-[#121212] border border-[#1A1A1A] text-slate-100 focus:border-[#00FF41] outline-none"
+                  />
+                </div>
+                
                 <div className="space-y-1">
                   <label className="text-gray-400 font-bold">System Status Badge</label>
                   <input

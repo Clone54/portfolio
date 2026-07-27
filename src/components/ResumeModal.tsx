@@ -15,9 +15,13 @@ interface ResumeModalProps {
 }
 
 export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
-  const { developerBio, skills: skillsData, timeline: timelineData, projects: projectsData } = usePortfolio();
+  const { developerBio, skills: skillsData, timeline: timelineData, projects: projectsData, socialLinks } = usePortfolio();
 
   if (!isOpen) return null;
+
+  const githubLink = socialLinks.find(s => s.name.toLowerCase() === 'github')?.url || developerBio.github;
+  const linkedinLink = socialLinks.find(s => s.name.toLowerCase() === 'linkedin')?.url || developerBio.linkedin;
+  const portfolioLink = developerBio.portfolio || window.location.origin;
 
   const handleDownload = () => {
     confetti({ particleCount: 100, spread: 80, origin: { y: 0.5 } });
@@ -67,9 +71,9 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               ${developerBio.phone} | ${developerBio.email} | ${developerBio.location}
             </div>
             <div class="links-line">
-              <a href="${window.location.origin}">Portfolio</a> || 
-              <a href="${developerBio.linkedin}">LinkedIn</a> || 
-              <a href="${developerBio.github}">GitHub</a>
+              <a href="${portfolioLink}">Portfolio</a> || 
+              <a href="${linkedinLink}">LinkedIn</a> || 
+              <a href="${githubLink}">GitHub</a>
             </div>
             
             <h2>Career Objective</h2>
@@ -161,11 +165,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 {developerBio.phone} | {developerBio.email} | {developerBio.location}
               </div>
               <div className="text-sm text-blue-600 mt-1 space-x-2">
-                <a href={window.location.origin} className="hover:underline">Portfolio</a>
+                <a href={portfolioLink} className="hover:underline">Portfolio</a>
                 <span className="text-slate-400">||</span>
-                <a href={developerBio.linkedin} className="hover:underline">LinkedIn</a>
+                <a href={linkedinLink} className="hover:underline">LinkedIn</a>
                 <span className="text-slate-400">||</span>
-                <a href={developerBio.github} className="hover:underline">GitHub</a>
+                <a href={githubLink} className="hover:underline">GitHub</a>
               </div>
             </div>
 
