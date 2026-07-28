@@ -105,9 +105,9 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ theme }) => {
           </button>
 
           <div className="flex items-center gap-2 text-[11px] text-slate-500">
-            <span>HOME</span>
+            <Link to="/#home" className="hover:text-cyan-400 transition-colors cursor-pointer">HOME</Link>
             <span>/</span>
-            <span>PROJECTS</span>
+            <Link to="/#projects" className="hover:text-cyan-400 transition-colors cursor-pointer">PROJECTS</Link>
             <span>/</span>
             <span className="text-cyan-400 font-bold">{project.id}</span>
           </div>

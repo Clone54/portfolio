@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Terminal, 
@@ -22,6 +23,8 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, onOpenResume }) => {
   const { isSoundEnabled, toggleSound, playSound } = usePortfolio();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -52,13 +55,32 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, onOpenResume })
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    playSound('click');
+    setMobileMenuOpen(false);
+
+    if (location.pathname !== '/') {
+      navigate('/#' + targetId);
+    } else {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', '#' + targetId);
+        setActiveSection(targetId);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
+
   const navLinks = [
-    { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Experience', href: '#experience', id: 'experience' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Contact', href: '#contact', id: 'contact' },
+    { name: 'Home', href: '/#home', id: 'home' },
+    { name: 'About', href: '/#about', id: 'about' },
+    { name: 'Skills', href: '/#skills', id: 'skills' },
+    { name: 'Experience', href: '/#experience', id: 'experience' },
+    { name: 'Projects', href: '/#projects', id: 'projects' },
+    { name: 'Contact', href: '/#contact', id: 'contact' },
   ];
 
   const getAccentClass = (t: NeonTheme) => {
@@ -82,19 +104,19 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, onOpenResume })
       {/* Top IDE Tabs Bar */}
       <div className="hidden sm:flex items-center justify-between bg-[#0A0A0A] border-b border-[#1A1A1A] h-8 px-4 text-xs font-mono select-none">
         <div className="flex space-x-1 h-full items-end">
-          <a href="#home" onClick={() => playSound('click')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#121212] border-t-2 border-[#00FF41] text-[11px] text-gray-200">
+          <a href="/#home" onClick={(e) => handleNavClick(e, 'home')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#121212] border-t-2 border-[#00FF41] text-[11px] text-gray-200">
             <span className="text-[#00E5FF] text-[10px]">●</span>
             <span>portfolio.js</span>
           </a>
-          <a href="#skills" onClick={() => playSound('click')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#080808] border-t border-[#1A1A1A] text-[11px] text-gray-400 hover:text-gray-200">
+          <a href="/#skills" onClick={(e) => handleNavClick(e, 'skills')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#080808] border-t border-[#1A1A1A] text-[11px] text-gray-400 hover:text-gray-200">
             <span className="text-amber-400 text-[10px]">●</span>
             <span>skills.json</span>
           </a>
-          <a href="#experience" onClick={() => playSound('click')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#080808] border-t border-[#1A1A1A] text-[11px] text-gray-400 hover:text-gray-200">
+          <a href="/#experience" onClick={(e) => handleNavClick(e, 'experience')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#080808] border-t border-[#1A1A1A] text-[11px] text-gray-400 hover:text-gray-200">
             <span className="text-purple-400 text-[10px]">●</span>
             <span>experience.py</span>
           </a>
-          <a href="#projects" onClick={() => playSound('click')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#080808] border-t border-[#1A1A1A] text-[11px] text-gray-400 hover:text-gray-200">
+          <a href="/#projects" onClick={(e) => handleNavClick(e, 'projects')} className="flex items-center space-x-1.5 px-3 py-1 bg-[#080808] border-t border-[#1A1A1A] text-[11px] text-gray-400 hover:text-gray-200">
             <span className="text-[#00FF41] text-[10px]">●</span>
             <span>projects.ts</span>
           </a>
@@ -115,8 +137,8 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, onOpenResume })
           
           {/* Brand / Logo */}
           <a 
-            href="#home" 
-            onClick={() => playSound('click')}
+            href="/#home" 
+            onClick={(e) => handleNavClick(e, 'home')}
             className="group flex items-center gap-2.5 font-mono font-bold text-lg tracking-tight text-slate-100 hover:text-[#00FF41] transition-colors"
             data-cursor-label="HOME"
           >
@@ -145,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, onOpenResume })
               <a
                 key={link.id}
                 href={link.href}
-                onClick={() => playSound('click')}
+                onClick={(e) => handleNavClick(e, link.id)}
                 className={`relative px-3.5 py-1.5 rounded-full text-xs lg:text-sm font-mono tracking-wide transition-all ${
                   isActive ? getActiveTextClass(theme) : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
                 }`}
@@ -305,10 +327,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, onOpenResume })
                   <a
                     key={link.id}
                     href={link.href}
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      playSound('click');
-                    }}
+                    onClick={(e) => handleNavClick(e, link.id)}
                     className={`flex items-center justify-between p-3 rounded-xl transition-colors ${
                       isActive 
                         ? 'bg-slate-900 text-cyan-400 border border-cyan-500/30' 

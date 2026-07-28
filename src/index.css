@@ -102,5 +102,77 @@
   animation: fade-in 0.3s ease-in-out;
 }
 
+/* Print Styles for Resume Modal */
+@media print {
+  /* Hide all non-printable UI elements */
+  nav, 
+  footer, 
+  main, 
+  canvas, 
+  .no-print, 
+  .sticky, 
+  [data-cursor-label], 
+  .custom-cursor, 
+  .scanlines {
+    display: none !important;
+  }
+
+  body, html, #root, #root > div {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  #resume-modal-overlay {
+    position: static !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+    z-index: 999999 !important;
+  }
+
+  #resume-modal-card {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+  }
+
+  .printable-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+  }
+
+  a {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+}
+
 
 
